@@ -22,6 +22,11 @@
   when: "'@' not in item.1.stdout"
   with_indexed_items: "{{ existing_dotfile_info.results }}"
 
+- name: Make all necessary directories for dotfile links.
+  command: "mkdir -p $(dirname {{ dotfiles_home }}/{{ item }})"
+  with_items: "{{ dotfiles_files }}"
+  become: false
+
 - name: Link dotfiles into home folder.
   file:
     src: "{{ dotfiles_repo_local_destination }}/{{ item }}"
