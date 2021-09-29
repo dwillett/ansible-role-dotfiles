@@ -23,9 +23,10 @@
   with_indexed_items: "{{ existing_dotfile_info.results }}"
 
 - name: Make all necessary directories for dotfile links.
-  command: "mkdir -p $(dirname {{ dotfiles_home }}/{{ item }})"
+  file: 
+    path: "{{ dotfiles_home }}/{{ item | dirname }}"
+    state: directory
   with_items: "{{ dotfiles_files }}"
-  become: false
 
 - name: Link dotfiles into home folder.
   file:

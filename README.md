@@ -1,18 +1,18 @@
 # Ansible Role: Dotfiles
 
-[![CI](https://github.com/geerlingguy/ansible-role-dotfiles/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-dotfiles/actions?query=workflow%3ACI)
+[![CI](https://github.com/dwillett/ansible-role-dotfiles/workflows/CI/badge.svg?event=push)](https://github.com/dwillett/ansible-role-dotfiles/actions?query=workflow%3ACI)
 
-Installs a set of dotfiles from a given Git repository. By default, it will install my (geerlingguy's) [dotfiles](https://github.com/geerlingguy/dotfiles), but you can use any set of dotfiles you'd like, as long as they follow a conventional format.
+Installs a set of dotfiles from a given Git repository. By default, it will install my (dwillett's) [dotfiles](https://github.com/dwillett/dotfiles), but you can use any set of dotfiles you'd like, as long as they follow a conventional format.
 
 ## Requirements
 
-Requires `git` on the managed machine (you can easily install it with `geerlingguy.git` if required).
+Requires `git` on the managed machine (you can easily install it with `dwillett.git` if required).
 
 ## Role Variables
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    dotfiles_repo: "https://github.com/geerlingguy/dotfiles.git"
+    dotfiles_repo: "https://github.com/dwillett/dotfiles.git"
     dotfiles_repo_version: master
 
 The git repository and branch/tag/commit hash to use for retrieving dotfiles. Dotfiles should generally be laid out within the root directory of the repository.
@@ -45,12 +45,8 @@ None
 
     - hosts: localhost
       roles:
-        - { role: geerlingguy.dotfiles }
+        - { role: dwillett.dotfiles }
 
 ## License
 
 MIT / BSD
-
-## Author Information
-
-This role was created in 2015 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
